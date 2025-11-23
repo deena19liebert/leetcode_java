@@ -1,6 +1,7 @@
 class Solution {
     public String minWindow(String s, String t) {
         if(s.length() == 0 || t.length() == 0) return "";
+        
         int[] need = new int[128];
         for(char c : t.toCharArray()) {
             need[c]++;
