@@ -19,11 +19,11 @@ class Solution {
     private static boolean canShip(int[] weights, int days, int mid) {
         int totalSum = 0;
         int totalDays = 1;
-        for(int i = 0; i< weights.length; i++) {
-               totalSum += weights[i];
+        for(int weight : weights) {
+               totalSum += weight;
                if ( totalSum > mid) {
                     totalDays++;
-                    totalSum = weights[i];
+                    totalSum = weight;
             }
         } return totalDays <= days;
     } 
