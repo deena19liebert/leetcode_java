@@ -1,18 +1,17 @@
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-
-        // A HashMap is used to store each element’s latest index.
-
-        Map<Integer, Integer> intMap = new HashMap<>();
-        for(int i=0; i<nums.length; i++){
-             // As we iterate through the array, we check if the current element has been seen before.
-             if(intMap.containsKey(nums[i])){
-                if(i-intMap.get(nums[i]) <= k) {
-                    return true;
-                }
-             }
-             intMap.put(nums[i], i);
+        Map<Integer, Integer> map = new HashMap<>();
+        int left=0, diff = 0;
+        for (int right = 0; right < nums.length; right++){
+            map.put(nums[right], map.getOrDefault(nums[right], 0) + 1);
+            while(map.get(nums[right]) > 1) {
+                diff = right - left;
+                if(diff > k) {
+                    map.put(nums[left], map.getOrDefault(nums[left], 0) - 1);
+                    left++;
+                } else return true;
+            }
         }
-        return false;
+        return false; 
     }
 }
