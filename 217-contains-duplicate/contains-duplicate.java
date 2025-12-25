@@ -1,14 +1,10 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-       // a hashset does not contain duplicates
-       // if there is a duplicate, return true or return false
-       Set<Integer> intSet = new HashSet<>();
-       for(int num : nums){
-        if(intSet.contains(num)) {
-            return true;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            if(map.get(num) > 1) return true;
         }
-        intSet.add(num);
-       }
-       return false;
+        return false;
     }
 }
