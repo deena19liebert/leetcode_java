@@ -3,10 +3,14 @@ class Solution {
         int left = 0, right = height.length - 1;
         int result = 0;
         while (left < right) {
-            int minHeight = Math.min(height[left], height[right]);
-            result = Math.max(result, minHeight * (right - left));
-            if(height[left] < height[right]) left++;
-            else right--;
+            if(height[left] < height[right]){
+                result = Math.max(result, height[left] * (right - left));
+                left++;
+            } 
+            else {
+                result = Math.max(result, height[right] * (right - left));
+                right--;
+            }
         }
         return result;
     }
