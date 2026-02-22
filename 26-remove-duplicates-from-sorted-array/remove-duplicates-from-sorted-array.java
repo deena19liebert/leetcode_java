@@ -1,18 +1,17 @@
-//BETTER APPROACH
+//OPTIMAL APPROACH- O(N) O(1)
 class Solution {
     public int removeDuplicates(int[] nums) {
         int n = nums.length;
         if(n == 0) return 0;
 
-        int left = 0, i = 1;
-        for(int right=0; right<n; right++){
-            if(nums[left] != nums[right]){
-                nums[i] = nums[right];
-                left = right;
+        int i = 0;
+        for(int j=1; j<n; j++){
+            if(nums[i] != nums[j]){
+                nums[i+1] = nums[j];
                 i++;
             }
         }
-        return i;
+        return i+1;
     }
 }
 //Brute Force
