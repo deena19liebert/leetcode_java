@@ -9,3 +9,17 @@ class Solution {
         return maxSum;
     }
 }
+//BRUTE FORCE SOLUTION 
+// class Solution {
+//     public int maxSubArray(int[] nums) {
+//         int maxElement = Integer.MIN_VALUE;
+//         for(int i=0; i<nums.length; i++){
+//             int sum = 0;
+//             for(int j=i; j<nums.length; j++){
+//                 sum += nums[j];
+//                 maxElement = Math.max(maxElement, sum);
+//             }
+//         }
+//         return maxElement;
+//     }
+// }
