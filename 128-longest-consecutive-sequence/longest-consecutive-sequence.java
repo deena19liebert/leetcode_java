@@ -1,7 +1,8 @@
-//OPTIMAL SOLUTION
+//OPTIMAL SOLUTION, TC: O(N), SC: O(N)
 class Solution {
     public int longestConsecutive(int[] nums) {
         int n = nums.length;
+        if(n == 0) return 0;
         Set<Integer> set = new HashSet<>();
         int maxLen = 0;
         for(int num : nums){
