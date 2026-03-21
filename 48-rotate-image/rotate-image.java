@@ -1,18 +1,6 @@
 //OPTIMAL APPROACH
+//TC: O(n^2), SC: O(1)
 class Solution {
-    public void swap(int[][] matrix, int start, int end){
-        int temp = matrix[start][end];
-        matrix[start][end] = matrix[end][start];
-        matrix[end][start] = temp;
-
-    }
-    public void reverse(int[][] matrix, int start, int end){
-        while(start < end){
-            swap(matrix, start, end);
-            start++;
-            end--;
-        }
-    }
     public void rotate(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;
