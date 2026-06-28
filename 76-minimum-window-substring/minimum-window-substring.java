@@ -16,8 +16,8 @@ class Solution {
             char r = s.charAt(right);
             if(freq[r] > 0){
                 required--;
-            }
-            freq[r]--;
+            }                
+            freq[r]--;      //the characters not in t will become -1
             right++;
 
             while(required == 0){
