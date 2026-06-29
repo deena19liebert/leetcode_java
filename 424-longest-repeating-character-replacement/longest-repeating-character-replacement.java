@@ -1,20 +1,25 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        int left=0;
-        int maxFreq=0;
-        int maxLen=0;
         int[] count = new int[26];
+        int left = 0;
+        int maxFreq = 0; //character with the maximum count
+        int maxLen = 0; 
 
-        for(int right=0; right<s.length(); right++) {
+        for(int right=0; right<s.length(); right++){
+
             count[s.charAt(right) - 'A']++;
             maxFreq = Math.max(maxFreq, count[s.charAt(right) - 'A']);
 
-            while((right-left + 1) - maxFreq > k) {
+            // Letters to change = Window Length - maxFreq
+            // windowSize = right - left + 1
+            // characters_to_be_changed = windowSize - maxFreq
+            // can't assign variables bcs it needs to be updated in the while loop
+
+            while((right - left + 1) - maxFreq > k){
                 count[s.charAt(left) - 'A']--;
                 left++;
             }
-
-            maxLen = Math.max(maxLen, right-left+1);
+            maxLen = Math.max(maxLen, right - left + 1);
         }
         return maxLen;
     }
