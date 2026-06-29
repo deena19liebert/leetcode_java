@@ -1,3 +1,13 @@
+// q.peek(): Looks at the element at the very front of the queue without removing it.
+
+// q.poll(): Removes and returns the element at the very front of the queue.
+
+// q.peekLast(): Looks at the element at the very back of the queue without removing it.
+
+// q.pollLast(): Removes and returns the element at the very back of the queue.
+
+// q.offer(i): Adds a new element i to the back of the queue.
+
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
